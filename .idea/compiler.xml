@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="chapter1" />
+        <module name="chapter2-1-1" />
+        <module name="chapter2-1-2" />
+        <module name="chapter2-2-1" />
+        <module name="chapter3-1-1" />
+        <module name="chapter3-1-2" />
+        <module name="chapter3-1-3" />
+        <module name="chapter3-1-4" />
+        <module name="chapter3-1-5" />
+        <module name="chapter3-1-6" />
+        <module name="chapter3-1-7" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="chapter1" target="1.8" />
+      <module name="chapter2-1-1" target="1.8" />
+      <module name="chapter2-1-2" target="1.8" />
+      <module name="chapter2-2-1" target="1.8" />
+      <module name="chapter3-1-1" target="1.8" />
+      <module name="chapter3-1-2" target="1.8" />
+      <module name="chapter3-1-3" target="1.8" />
+      <module name="chapter3-1-4" target="1.8" />
+      <module name="chapter3-1-5" target="1.8" />
+      <module name="chapter3-1-6" target="1.8" />
+      <module name="chapter3-1-7" target="1.8" />
+      <module name="demo" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
