@@ -8,35 +8,38 @@ import java.util.*;
 @RestController
 @RequestMapping(value = "/users")
 public class UserController {
-    private Map<Long, User> userMap = Collections.synchronizedMap(new HashMap<Long, User>());
+    private Map<Long, User> users = Collections.synchronizedMap(new HashMap<Long, User>());
 
     @RequestMapping(value = "/getUserList", method = RequestMethod.GET)
     public List<User> getUserList() {
-        List<User> userList = new ArrayList<User>(userMap.values());
+        List<User> userList = new ArrayList<User>(users.values());
         return userList;
     }
 
-    /**
-     * 除了@ModelAttribute绑定参数之外，还可以通过@RequestParam从页面中传递参数
-     *
-     * @param user
-     * @return
-     */
-    @RequestMapping(value = "/setUserInfo", method = RequestMethod.POST)
+    /**除了@ModelAttribute绑定参数之外，还可以通过@RequestParam从页面中传递参数**/
+    @RequestMapping(value = "/setUser", method = RequestMethod.POST)
     public String setUser(@ModelAttribute User user) {
-        System.out.println("-------------");
-        userMap.put(user.getId(), user);
+        users.put(user.getId(), user);
         return "success";
     }
 
-    @RequestMapping(value = "/getUser/{11111111L}", method = RequestMethod.GET)
-    public User getUser(@PathVariable Long id) {
-        return userMap.get(id);
+    @RequestMapping(value = "/updateUserInfo/{id}",method = RequestMethod.PUT)
+    public String updateUserInfo(@PathVariable Long id,@ModelAttribute User userInfo){
+        User u = users.get(id);
+        u.setName(userInfo.getName());
+        u.setAge(userInfo.getAge());
+        users.put(id, u);
+    return "success";
+    }
+
+    @RequestMapping(value = "/getUserInfoById/{id}", method = RequestMethod.GET)
+    public User getUserInfoById(@PathVariable Long id) {
+        return users.get(id);
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
-    public String deleteUserById(@ModelAttribute Long id) {
-        userMap.remove(id);
+    public String deleteUserById(@PathVariable Long id) {
+        users.remove(id);
         return "success";
     }
 }
